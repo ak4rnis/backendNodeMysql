@@ -6,12 +6,12 @@ const crearInstructor = async ({usuario_id, biografia, foto_perfil}) => {
 }
 
 const getInstructorById = async (id) => {
-    const [rows] = await db.execute('SELECT * FROM instructores WHERE id = ?', [id]);
+    const [rows] = await db.execute('SELECT * FROM instructores WHERE usuario_id = ?', [id]);
     return rows[0];
 }
 
 const actualizarInstructor = async (id, {biografia, foto_perfil}) => {
-    const [rows] = await db.execute('UPDATE instructores SET  usuario_id = ?, biografia = ?, foto_perfil = ? WHERE id = ?', [usuario_id, biografia, foto_perfil, id]);
+    const [rows] = await db.execute('UPDATE instructores SET  biografia = ?, foto_perfil = ? WHERE usuario_id = ?', [biografia, foto_perfil, id]);
     return rows;
 }
 
