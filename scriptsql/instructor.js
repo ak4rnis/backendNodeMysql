@@ -1,7 +1,7 @@
 const db = require("../connect");
 
 const crearInstructor = async ({usuario_id, biografia, foto_perfil}) => {
-    const [rows] = await db.execute('INSERT INTO instructores (usuario_id, biografia, foto_perfil) VALUES (?, ?, ?)', [usuario_id, biografia, foto_perfil]);
+    const [rows] = await db.execute('INSERT INTO instructores (usuario_id, biografia, foto_perfil_url) VALUES (?, ?, ?)', [usuario_id, biografia, foto_perfil]);
     return rows;
 }
 
@@ -11,7 +11,7 @@ const getInstructorById = async (id) => {
 }
 
 const actualizarInstructor = async (id, {biografia, foto_perfil}) => {
-    const [rows] = await db.execute('UPDATE instructores SET  biografia = ?, foto_perfil = ? WHERE usuario_id = ?', [biografia, foto_perfil, id]);
+    const [rows] = await db.execute('UPDATE instructores SET  biografia = ?, foto_perfil_url = ? WHERE usuario_id = ?', [biografia, foto_perfil, id]);
     return rows;
 }
 

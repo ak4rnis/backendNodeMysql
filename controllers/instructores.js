@@ -6,7 +6,7 @@ const CrearInstructor = async (req, res) => {
         const instructor = await Instructores.crearInstructor({usuario_id, biografia, foto_perfil});
         res.json(instructor);
     }catch(error)
-    {
+    {   console.log(error);
         res.status(500).json({message: 'Error en el Servidor', error: error.message});
     }
 }
