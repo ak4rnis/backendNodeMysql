@@ -1,9 +1,9 @@
 const Instructores = require("../scriptsql/instructor");
 
 const CrearInstructor = async (req, res) => {
-    const {usuario_id, biografia, foto_perfil} = req.body;
+    const {usuario_id, biografia, foto_perfil_url} = req.body;
     try{
-        const instructor = await Instructores.crearInstructor({usuario_id, biografia, foto_perfil});
+        const instructor = await Instructores.crearInstructor({usuario_id, biografia, foto_perfil_url});
         res.json(instructor);
     }catch(error)
     {   console.log(error);
