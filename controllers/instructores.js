@@ -24,9 +24,9 @@ const VerInstructorById = async (req, res) => {
 
 const ActualizarInstructor = async (req, res) => {
     const instructorId = req.params['id'];
-    const {usuario_id, biografia, foto_perfil} = req.body; 
+    const {biografia, foto_perfil_url} = req.body; 
     try{
-        const instructores = await Instructores.actualizarInstructor(instructorId, { biografia, foto_perfil});
+        const instructores = await Instructores.actualizarInstructor(instructorId, { biografia, foto_perfil_url});
         res.json({instructores});
     }catch(error){
         res.status(500).json({message: 'Error en el Servidor', error: error.message});
