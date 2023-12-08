@@ -21,7 +21,11 @@ const eliminarInstructor = async (id) => {
 };
 
 const mostrarInstructores = async () => {
-    const [rows] = await db.execute('SELECT * FROM instructores');
+    const [rows] = await db.execute(`
+    SELECT i.*, u.*
+    FROM instructores i
+    INNER JOIN usuarios u ON i.usuario_id = u.id
+  `);
     return rows;
 };
 
