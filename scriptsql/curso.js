@@ -1,7 +1,7 @@
 const db = require("../connect");
 
 const crearCurso = async ({titulo, descripcion, instructor_id, categoria_id, precio, nivel, imagen}) => {
-    const [rows] = await db.execute('INSERT INTO cursos (titutlo, descripcion, instructor_id, categoria_id, precio, nivel, imagen) VALUES (?, ?, ?, ?, ? , ?, ?)', [titulo, descripcion, instructor_id, categoria_id, precio, nivel, imagen]);
+    const [rows] = await db.execute('INSERT INTO cursos (titulo, descripcion, instructor_id, categoria_id, precio, nivel, imagen) VALUES (?, ?, ?, ?, ? , ?, ?)', [titulo, descripcion, instructor_id, categoria_id, precio, nivel, imagen]);
     return rows;
 }
 
