@@ -14,6 +14,7 @@ const VerCursoById = async (req, res) => {
     const cursId = req.params['id'];
     try{
         const curso = await Cursos.getCursoById(cursId);
+        res.json({curso})
     }catch(error){
         res.status(500).json({message: 'Error en el Servidor', error: error.message});
     }
