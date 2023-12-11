@@ -22,7 +22,7 @@ const eliminarSeccion = async (id) => {
 };
 
 const mostrarTodosLasSecciones = async () => {
-    const [rows] = await db.execute('SELECT * FROM secciones');
+    const [rows] = await db.execute(`SELECT s.*, c.titulo AS curso_titulo FROM secciones s JOIN cursos c ON s.curso_id = c.id;`);
     return rows;
 };
 

@@ -22,7 +22,11 @@ const eliminarCurso = async (id) => {
 }
 
 const mostrarCursos = async () => {
-    const [rows] = await db.execute('SELECT * FROM cursos');
+    const [rows] = await db.execute(`SELECT c.*, cat.nombre AS categoria_nombre, u.nombre AS instructor_nombre
+    FROM cursos c
+    JOIN categorias cat ON c.categoria_id = cat.id
+    JOIN instructores ins ON c.instructor_id = ins.usuario_id
+    JOIN usuarios u ON ins.usuario_id = u.id;`);
     return rows;
 }
 
