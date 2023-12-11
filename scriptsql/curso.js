@@ -22,7 +22,7 @@ const eliminarCurso = async (id) => {
 }
 
 const mostrarCursos = async () => {
-    const rows = await db.execute('SELECT * FROM cursos');
+    const [rows] = await db.execute('SELECT * FROM cursos');
     return rows;
 }
 
