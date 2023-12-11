@@ -42,8 +42,8 @@ const EliminarCurso = async (req, res) => {
 
 const MostrarCursos = async (req, res) => {
     try{
-        const curso = await Cursos.mostrarCursos();
-        res.json(curso);
+        const cursos = await Cursos.mostrarCursos();
+        res.json(cursos);
     }catch(error){
         res.status(500).json({message: 'Error en el Servidor', error: error.message});
     }
